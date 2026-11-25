@@ -26,8 +26,12 @@
       {% for k in site.data.kampanie %}
       <li>
         <a href="{{ k.url | relative_url }}">
-          <strong>{{ k.title }}</strong>
-          <p class="summary">{{ k.description }}</p>
+          {% if k.image %}<img src="{{ k.image | relative_url }}" width="900" height="382" loading="lazy"
+               alt="{{ k.image_alt | default: k.title }}">{% endif %}
+          <div class="body">
+            <strong>{{ k.title }}</strong>
+            <p class="summary">{{ k.description }}</p>
+          </div>
         </a>
       </li>
       {% endfor %}

@@ -86,7 +86,7 @@ main > p:not(.prompt) { color: var(--muted); margin: 0 0 1.8rem; font-size: .95r
 .session-list a {
   display: block;
   min-height: 3.5rem;          /* wygodny cel dotyku na telefonie */
-  padding: 1rem 1.1rem;
+  padding: 0;                  /* odstępy ma .body, żeby plakat sięgał krawędzi karty */
   background: var(--panel);
   border: 1px solid var(--line);
   border-left: 4px solid var(--accent-dark);
@@ -99,6 +99,17 @@ main > p:not(.prompt) { color: var(--muted); margin: 0 0 1.8rem; font-size: .95r
   background: var(--panel-hover);
   border-color: var(--accent);
   outline: none;
+}
+.session-list .body { padding: 1rem 1.1rem; }
+/* Plakat kampanii: kadr 16:9, tytuł i postacie zostają widoczne także na telefonie */
+.session-list img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: 40% 35%;
+  border-bottom: 1px solid var(--line);
 }
 .session-list strong {
   font-size: 1.05rem;

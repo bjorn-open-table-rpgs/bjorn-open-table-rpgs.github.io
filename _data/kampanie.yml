@@ -1,6 +1,8 @@
 # Lista kampanii na stronie startowej.
-# Nowa kampania = nowe repozytorium w organizacji + trzy linie tutaj.
-# url: /nazwa-repozytorium/
+# Nowa kampania = nowe repozytorium w organizacji + wpis tutaj.
+# url: /nazwa-repozytorium/   image: plakat kampanii (opcjonalny), wgraj go do assets/
 - title: Conan Open Table
   url: /conan/
-  description: Kampania w świecie Conana. Gracze dołączają, kiedy mają czas.
+  image: /assets/conan-plakat.jpg
+  image_alt: "Plakat kampanii: Wyżyna Wapiennych Kości, Cień Maga. Czarodziej na skalnej półce naprzeciw drużyny wojowników."
+  description: Wyżyna Wapiennych Kości • Cień Maga. Kroniki kampanii, postacie i zasady.
