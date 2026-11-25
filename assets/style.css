@@ -1,0 +1,51 @@
+:root {
+  --bg: #17120e;
+  --panel: #231b14;
+  --text: #eadfce;
+  --muted: #a89a86;
+  --accent: #d9822b;
+  --line: #3a2e22;
+}
+* { box-sizing: border-box; }
+html { font-size: 18px; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+a { color: var(--accent); }
+.site-header {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: .5rem 1.5rem; padding: .9rem 1.1rem;
+  background: var(--panel); border-bottom: 2px solid var(--accent);
+}
+.brand { font-weight: bold; font-size: 1.15rem; color: var(--text); text-decoration: none; letter-spacing: .03em; }
+nav a { margin-right: 1.1rem; text-decoration: none; padding: .4rem 0; display: inline-block; }
+main { max-width: 42rem; margin: 0 auto; padding: 1.2rem 1.1rem 3rem; }
+h1, h2, h3 { line-height: 1.25; }
+h1 { font-size: 1.8rem; margin-top: .3rem; }
+.meta { color: var(--muted); font-size: .85rem; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 0; }
+.session-list { list-style: none; padding: 0; }
+.session-list li { border: 1px solid var(--line); background: var(--panel); border-radius: 6px; margin-bottom: .8rem; }
+.session-list a { display: block; padding: .8rem 1rem; text-decoration: none; color: var(--text); }
+.session-list a:hover { background: #2c2218; }
+.session-list .meta { font-size: .75rem; }
+.session-list .summary { color: var(--muted); font-size: .9rem; margin: .2rem 0 0; }
+.pager { margin-top: 2rem; }
+img { max-width: 100%; height: auto; border-radius: 4px; }
+blockquote { margin-left: 0; padding-left: 1rem; border-left: 3px solid var(--accent); color: var(--muted); }
+table { border-collapse: collapse; display: block; overflow-x: auto; }
+td, th { border: 1px solid var(--line); padding: .35rem .6rem; }
+.site-footer { text-align: center; color: var(--muted); font-size: .8rem; padding: 1.5rem; border-top: 1px solid var(--line); }
+
+/* Karty postaci */
+.cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: .8rem; }
+@media (min-width: 40rem) { .cards { grid-template-columns: repeat(3, 1fr); } }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: .6rem; }
+.card img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: top; }
+.card h3 { margin: .5rem 0 .2rem; font-size: 1.05rem; }
+.card p { margin: 0; font-size: .8rem; color: var(--muted); line-height: 1.4; }
+
+nav a.back { color: var(--muted); font-size: .85rem; }
