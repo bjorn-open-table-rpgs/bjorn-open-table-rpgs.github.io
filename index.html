@@ -7,14 +7,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ site.title }}</title>
   <meta name="description" content="{{ site.description }}">
-  <meta name="theme-color" content="#0f1115">
+  <meta name="theme-color" content="#0b0b0b">
+  <meta property="og:title" content="{{ site.title }}">
+  <meta property="og:description" content="{{ site.description }}">
+  <meta property="og:image" content="{{ '/assets/baner.jpg' | absolute_url }}">
   <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
 </head>
 <body>
-  <header class="site-header">
-    <span class="brand">{{ site.title }}</span>
+  <header class="hero">
+    <img src="{{ '/assets/baner.jpg' | relative_url }}" width="851" height="315"
+         alt="Baner GRUZ-30: szkielet pomiędzy skalną ścianą a ruinami zamku">
   </header>
   <main>
+    <p class="prompt">{{ site.title }}</p>
     <h1>Wybierz kampanię</h1>
     <p>Tu znajdziesz strony moich kampanii w formule Open Table. Kliknij kampanię, żeby zobaczyć kronikę, postacie i zasady.</p>
     <ul class="session-list">

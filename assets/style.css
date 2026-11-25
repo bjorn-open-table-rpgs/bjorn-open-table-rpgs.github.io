@@ -1,19 +1,21 @@
-/* Strona startowa: ciemny, minimalistyczny, czytelny na telefonie.
-   Kolory zmienisz w kilku zmiennych poniżej. */
+/* Strona startowa: ciemny, czerwony, retro-terminal, minimalistyczny.
+   Kolory dobrane do baneru GRUZ-30. Zmienisz je w zmiennych poniżej. */
 :root {
   color-scheme: dark;
-  --bg: #0f1115;
-  --panel: #171a21;
-  --panel-hover: #1e222b;
-  --line: #262b36;
-  --text: #e8eaed;
-  --muted: #9aa1ad;
-  --accent: #7aa7ff;
+  --bg: #0b0b0b;          /* tło takie jak na banerze */
+  --panel: #121212;
+  --panel-hover: #190c0d;
+  --line: #2a2a2a;
+  --text: #cfcfcf;        /* jasna szarość z grafiki */
+  --muted: #8d8d8d;
+  --accent: #e5484d;      /* czerwień jaśniejsza niż na banerze, żeby tekst był czytelny */
+  --accent-dark: #8c1117; /* czerwień z banera, do ozdób */
+  --mono: "Courier New", Courier, ui-monospace, Menlo, Consolas, monospace;
 }
 
 * { box-sizing: border-box; }
 
-html { font-size: 17px; -webkit-text-size-adjust: 100%; }
+html { font-size: 16px; -webkit-text-size-adjust: 100%; }
 
 body {
   margin: 0;
@@ -22,19 +24,22 @@ body {
   flex-direction: column;
   background: var(--bg);
   color: var(--text);
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  line-height: 1.6;
+  font-family: var(--mono);
+  line-height: 1.65;
 }
 
 a { color: var(--accent); }
 
-.site-header {
-  padding: 1.2rem 1.25rem;
-  border-bottom: 1px solid var(--line);
+/* Baner: na całą szerokość ekranu, proporcje zachowane, bez rozciągania */
+.hero {
+  width: 100%;
+  max-width: 851px;           /* oryginalna szerokość grafiki, żeby nie rozmywać */
+  margin: 0 auto;
 }
-.brand {
-  font-weight: 600;
-  letter-spacing: .02em;
+.hero img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 main {
@@ -42,31 +47,49 @@ main {
   width: 100%;
   max-width: 40rem;
   margin: 0 auto;
-  padding: 2rem 1.25rem 3rem;
+  padding: 1.6rem 1.25rem 3rem;
 }
 
-h1 {
-  font-size: 1.7rem;
-  line-height: 1.25;
-  margin: 0 0 .6rem;
+.prompt {
+  margin: 0 0 1.2rem;
+  color: var(--muted);
+  font-size: .85rem;
+  letter-spacing: .04em;
 }
-main > p { color: var(--muted); margin: 0 0 1.8rem; }
+.prompt::before { content: "> "; color: var(--accent); }
+.prompt::after {
+  content: "_";
+  color: var(--accent);
+  animation: blink 1.1s steps(1) infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .prompt::after { animation: none; } }
+
+h1 {
+  font-size: 1.5rem;
+  line-height: 1.25;
+  margin: 0 0 .7rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+main > p:not(.prompt) { color: var(--muted); margin: 0 0 1.8rem; font-size: .95rem; }
 
 .session-list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  gap: .75rem;
+  gap: .8rem;
 }
 .session-list li { margin: 0; }
 .session-list a {
   display: block;
-  padding: 1.1rem 1.2rem;
-  min-height: 3.5rem;            /* wygodny cel dotyku */
+  min-height: 3.5rem;          /* wygodny cel dotyku na telefonie */
+  padding: 1rem 1.1rem;
   background: var(--panel);
   border: 1px solid var(--line);
-  border-radius: 12px;
+  border-left: 4px solid var(--accent-dark);
   color: var(--text);
   text-decoration: none;
   transition: background .15s, border-color .15s;
@@ -77,27 +100,29 @@ main > p { color: var(--muted); margin: 0 0 1.8rem; }
   border-color: var(--accent);
   outline: none;
 }
-.session-list strong { font-size: 1.1rem; }
-.session-list strong::after {
-  content: " →";
-  color: var(--accent);
+.session-list strong {
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
 }
+.session-list strong::before { content: "$ "; color: var(--accent); }
 .session-list .summary {
-  margin: .25rem 0 0;
+  margin: .3rem 0 0;
   color: var(--muted);
-  font-size: .92rem;
+  font-size: .88rem;
 }
 
 .site-footer {
-  padding: 1.5rem 1.25rem;
+  padding: 1.4rem 1.25rem;
   text-align: center;
   color: var(--muted);
-  font-size: .8rem;
+  font-size: .75rem;
+  letter-spacing: .06em;
   border-top: 1px solid var(--line);
 }
 
 @media (min-width: 40rem) {
-  html { font-size: 18px; }
-  main { padding-top: 3.5rem; }
-  h1 { font-size: 2rem; }
+  html { font-size: 17px; }
+  main { padding-top: 2.2rem; }
+  h1 { font-size: 1.8rem; }
 }
